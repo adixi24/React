@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy,Suspense } from "react";
 import ReactDOM from "react-dom/client"
 
 import reslogo from "../images/reslogo.jpg"
@@ -8,6 +8,9 @@ import { createBrowserRouter,RouterProvider,Outlet } from "react-router-dom";
 import About from "./components/About";
 import ContactUs from "./components/ContactUs";
 import RestroMenuComponent from "./components/RestroMenuComponent";
+
+
+const Grocery =lazy(()=>import("./components/Grocery"));
 
 const AppLayout=()=>{
     return(<div className="app">
@@ -37,6 +40,10 @@ children: [
     {
         path:"/restaurants/:resId",
         element:<RestroMenuComponent/>
+    },
+    {
+        path:"/grocery",
+        element:<Suspense fallback={<h2>loading....</h2>}><Grocery /></Suspense>
     }
     ],
     errorElement:<Error />,
