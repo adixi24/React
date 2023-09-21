@@ -8,6 +8,7 @@ import { createBrowserRouter,RouterProvider,Outlet } from "react-router-dom";
 import About from "./components/About";
 import ContactUs from "./components/ContactUs";
 import RestroMenuComponent from "./components/RestroMenuComponent";
+import Demo from "./components/Demo";
 
 
 const Grocery =lazy(()=>import("./components/Grocery"));
@@ -44,6 +45,10 @@ children: [
     {
         path:"/grocery",
         element:<Suspense fallback={<h2>loading....</h2>}><Grocery /></Suspense>
+    },
+    {
+        path:"/demo",
+        element:<Demo />
     }
     ],
     errorElement:<Error />,
